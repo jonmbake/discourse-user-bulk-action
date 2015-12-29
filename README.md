@@ -1,6 +1,6 @@
 # discourse-user-bulk-action
 
-A simple ruby script for performing bulk actions (CREATE, UPDATE, ACTIVATE or INACTIVATE) on a list of [Discourse](https://github.com/discourse/discourse) users (defined in `users.yml`).
+A simple ruby script for performing bulk actions (UPSERT, ACTIVATE or INACTIVATE) on a list of [Discourse](https://github.com/discourse/discourse) users (defined in `users.yml`).
 
 *Note:* User Groups can also be specified (see example user.yml).  Groups will only be added via the script-- never removed.
 
@@ -35,7 +35,7 @@ First a blurb about what the script does will appear and you will then be prompt
 
 ```
 This script will perform a bulk action on the following users: User1, User2.
-Note: When performing an Update the values are matched on email.
+Note: An UPSERT will create a user if an account for the email address doesn't exist, otherwise it will update the user record if it exists.
 
-Please enter the action you would like to perform: CREATE, UPDATE, ACTIVATE or INACTIVATE.
+Please enter the action you would like to perform: UPSERT, ACTIVATE or INACTIVATE.
 ```
