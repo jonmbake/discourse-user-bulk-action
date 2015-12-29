@@ -6,11 +6,12 @@ A simple ruby script for performing bulk actions (CREATE, UPDATE, ACTIVATE or IN
 
 ## To Use
 
-### 1. Create `users.yml`
+### 1. Enter into App and Create `users.yml`
 
 This command will clone the example one:
 
 ```
+./launcher enter app
 wget -O ./script/users.yml https://raw.githubusercontent.com/jonmbake/discourse-user-bulk-action/master/users.yml
 ```
 
@@ -19,7 +20,6 @@ wget -O ./script/users.yml https://raw.githubusercontent.com/jonmbake/discourse-
 ### 3. Run the Script within Rails Console:
 
 ```
-./launcher enter app
 wget -O ./script/user_bulk_action.rb https://raw.githubusercontent.com/jonmbake/discourse-user-bulk-action/master/user_bulk_action.rb
 rails c
 load 'script/user_bulk_action.rb'
