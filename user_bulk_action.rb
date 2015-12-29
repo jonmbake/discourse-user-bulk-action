@@ -8,8 +8,8 @@ action = $stdin.gets.chomp
 case action
 when 'CREATE'
   users.each do |u|
-    u = User.create!(u.except('groups'))
-    u.activate
+    user = User.create!(u.except('groups'))
+    user.activate
     u['groups'].try(:each) do |group_name|
       g = Group.find_by(name: group_name)
       user.groups << g unless g.nil?
