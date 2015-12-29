@@ -1,12 +1,14 @@
-# discourse-user-bulk-action/
+# discourse-user-bulk-action
 
 A simple ruby script for performing bulk actions (CREATE, UPDATE, ACTIVATE or INACTIVATE) on a list of [Discourse](https://github.com/discourse/discourse) users (defined in `users.yml`).
 
-UPDATE currently only updates username and/or name.  Groups that the user belongs to can also be specified (see example user.yml).  Groups will only be added via the script-- never removed.
+*Note:* UPDATE currently only updates username and/or name.  Groups that the user belongs to can also be specified (see example user.yml).  Groups will only be added via the script-- never removed.
 
 ## To Use
 
-### 1. Create `users.yml`:
+### 1. Create `users.yml`
+
+This command will clone the example one:
 
 ```
 wget -O ./script/users.yml https://raw.githubusercontent.com/jonmbake/discourse-user-bulk-action/master/users.yml
@@ -31,5 +33,5 @@ First a blurb about what the script does will appear and you will then be prompt
 This script will perform a bulk action on the following users: User1, User2.
 Note: When performing an Update the values are matched on email.
 
-Please enter the action you would like to perform: CREATE, UPDATE or INACTIVATE
+Please enter the action you would like to perform: CREATE, UPDATE, ACTIVATE or INACTIVATE.
 ```
