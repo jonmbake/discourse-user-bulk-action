@@ -1,0 +1,6 @@
+- name: Test User1
+  email: test_user@gmail.com
+  username: tester
+- name: Test User2
+  email: test_user2@gmail.com
+  username: tester2
