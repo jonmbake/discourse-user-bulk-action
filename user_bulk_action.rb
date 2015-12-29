@@ -10,10 +10,21 @@ when 'CREATE'
   users.each do |u|
     u = User.create!(u)
     u.activate
+    u['groups'].try(:each) do |group_name|
+      g = Group.find_by(name: group_name)
+      user.groups << g unless g.nil?
+    end
   end
 when 'UPDATE'
   users.each do |u|
-    User.find_by_email(u['email']).try { |user| user.update(u) }
+    User.find_by_email(u['email']).try do |user|
+      user.update(u.slice(:name, :username))
+      u['groups'].try(:each) do |group_name|
+        g = Group.find_by(name: group_name)
+        user.groups << g unless g.nil?
+      end
+    end
+
   end
 when 'ACTIVATE'
   users.each do |u|

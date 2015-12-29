@@ -2,6 +2,8 @@
 
 A simple ruby script for performing bulk actions (CREATE, UPDATE, ACTIVATE or INACTIVATE) on a list of [Discourse](https://github.com/discourse/discourse) users (defined in `users.yml`).
 
+UPDATE currently only updates username and/or name.  Groups that the user belongs to can also be specified (see example user.yml).  Groups will only be added via the script-- never removed.
+
 ## To Use
 
 ### 1. Create `users.yml`:
