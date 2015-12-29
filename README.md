@@ -1,21 +1,29 @@
 # discourse-user-bulk-action/
 
-A simple ruby script for performing bulk actions (CREATE, UPDATE, ACTIVATE or INACTIVATE) on a list of users defined in `users.yml`.
+A simple ruby script for performing bulk actions (CREATE, UPDATE, ACTIVATE or INACTIVATE) on a list of [Discourse](https://github.com/discourse/discourse) users (defined in `users.yml`).
 
 ## To Use
 
-Edit `users.yml` with the list of users you want to perform a bulk operation on.
+### 1. Create `users.yml`:
 
-Then enter the following sequence of commands:
+```
+wget -O ./script/users.yml https://raw.githubusercontent.com/jonmbake/discourse-user-bulk-action/master/users.yml
+```
+
+### 2. Edit `users.yml` with the list of users you want to perform a bulk operation on.
+
+### 3. Run the Script within Rails Console:
 
 ```
 ./launcher enter app
-wget https://github.com/jonmbake/discourse-user-bulk-action/archive/master.zip && unzip master.zip -d script && rm master.zip
+wget -O ./script/user_bulk_action.rb https://raw.githubusercontent.com/jonmbake/discourse-user-bulk-action/master/user_bulk_action.rb
 rails c
-load 'script/discourse-user-bulk-action/user_bulk_action.rb'
+load 'script/user_bulk_action.rb'
 ```
 
-Then a blurb about what the script does will appear and you will then be prompted for the action that you wish to take:
+### 4. Enter the Action That You Wish to Perform
+
+First a blurb about what the script does will appear and you will then be prompted for the action that you wish to take:
 
 ```
 This script will perform a bulk action on the following users: User1, User2.

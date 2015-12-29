@@ -13,13 +13,16 @@ when 'CREATE'
   end
 when 'UPDATE'
   users.each do |u|
-    u = User.find_by_email(u['email']).try { |u| u.update(u) }
+    User.find_by_email(u['email']).try { |user| user.update(u) }
   end
 when 'ACTIVATE'
-  users.each(&:activate)
+  users.each do |u|
+    User.find_by_email(u['email']).try(&:activate)
   end
 when 'INACTIVATE'
-  users.each(&:deactivate)
+  users.each do |u|
+    User.find_by_email(u['email']).try(&:deactivate)
+  end
 else
   abort('Unrecognized action.  Must be either CREATE, UPDATE, ACTIVATE or INACTIVATE')
 end
